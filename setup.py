@@ -11,12 +11,14 @@ setuptools.setup(
     description="A simple package to interact Wikipedia pages",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/lrusso96/pywmit",
+    url="https://github.com/lrusso96/pywm",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=['mwparserfromhell', 'pywikibot']
+    install_requires=['mwparserfromhell', 'pywikibot'],
+    test_suite='nose.collector',
+    tests_require=['nose'],
 )
