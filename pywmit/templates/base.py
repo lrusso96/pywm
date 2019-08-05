@@ -69,4 +69,4 @@ class Template:
         for m in suspected:
             logger.warning('invalid parameter in %s: %s', self.name, m)
         for m in miss_suggested:
-            logger.info('invalid parameter in %s: %s', self.name, m)
+            logger.info('missing suggested parameter in %s: %s', self.name, m)

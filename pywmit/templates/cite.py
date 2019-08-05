@@ -1,5 +1,7 @@
 from pywmit.templates.base import Template, Param
 
+# fixme: handle "nome" and "cognome" fields
+
 
 class CitaLibro(Template):
     def __init__(self):
