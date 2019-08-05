@@ -1,9 +1,9 @@
-from pywmit.templates.cite import CitaWeb, CitaPubblicazione, CitaLibro
+"""from pywmit.templates.cite import CitaWeb, CitaPubblicazione, CitaLibro
 from pywmit.parser import parse
 import unittest
 
 
-class TestStringMethods(unittest.TestCase):
+class TestSampleMethods(unittest.TestCase):
     def test_simple(self):
         wikicode = parse("Placca iberica")
         templates = wikicode.filter_templates()
@@ -24,3 +24,4 @@ class TestStringMethods(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+"""
