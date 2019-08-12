@@ -9,21 +9,19 @@ Before you use the library, you need to create a file named **user-config.py** i
 ## Examples
 
 ```python
-    wikicode = parse(page)
-    templates = wikicode.filter_templates()
-    for t in templates:
-        par = t.params
-        if t.name.matches(tmp_name_1):
-            tmp_1.check_params(par)
-        else:
-            ...
+from pywmit.check import check
+
+page_titles = [...]
+for page in page_titles:
+    check(page)
 ```
 
-that produces something like:
+that outputs something like:
 
 ```
 WARNING: invalid parameter in template...
 WARNING: missing required parameter for template...
+...
 ```
 
 ## Useful resources
