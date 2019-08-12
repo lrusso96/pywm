@@ -1,6 +1,7 @@
 from pywmit.templates.base import Template, Param
 
 # fixme: handle "nome" and "cognome" fields
+# todo: add "cita news"
 
 
 class CitaLibro(Template):
@@ -19,6 +20,7 @@ class CitaLibro(Template):
         self.params.add(Param('editore', kind=Param.Kind.SUGGESTED))
         self.params.add(Param('città', Param.Kind.SUGGESTED))
         self.params.add(Param('anno', Param.Kind.SUGGESTED))
+        self.params.add(Param('data', Param.Kind.SUGGESTED))
         self.params.add(Param('lingua'))
         self.params.add(Param('annooriginale'))
         self.params.add(Param('volume'))
@@ -77,6 +79,7 @@ class CitaPubblicazione(Template):
         # fixme: accepted but not (yet) in official docs!
         self.params.add(Param('isbn'))
         self.params.add(Param('bibcode'))
+        self.params.add(Param('jstor'))
 
 
 class CitaWeb(Template):
