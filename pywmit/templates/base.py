@@ -64,8 +64,8 @@ class Template:
                 else:
                     suspected.add(s)
         for m in miss_required:
-            logger.warning('missing required parameter in %s: %s', self.name, m)
+            logger.warning(f'missing required parameter in {self.name}: {m}')
         for m in suspected:
-            logger.warning('invalid parameter in %s: %s', self.name, m)
+            logger.warning(f'invalid parameter in {self.name}: {m}')
         for m in miss_suggested:
-            logger.info('missing suggested parameter in %s: %s', self.name, m)
+            logger.info(f'missing suggested parameter in {self.name}: {m}')
