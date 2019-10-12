@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pywmit",
-    version="0.1.0",
+    version="0.1.1",
     author="Luigi Russo",
     author_email="russo.1699981@studenti.uniroma1.it",
     description="A simple package to interact Wikipedia pages",
@@ -18,7 +18,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=['mwparserfromhell', 'pywikibot'],
+    install_requires=['mwparserfromhell', 'mwklient'],
     test_suite='nose.collector',
     tests_require=['nose'],
 )
