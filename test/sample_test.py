@@ -1,4 +1,4 @@
-from pywmit.check import check
+from pywmit import check
 import unittest
 
 
