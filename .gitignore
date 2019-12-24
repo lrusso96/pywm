@@ -1,16 +1,4 @@
-\.idea/
-build
-dist
-apicache-py3/
-venv/
-__pycache__/
-*.pyc
-.cache
-*~
-*.egg
-*.egg-info
-.eggs
-*.lwp
-*.ctrl
 
-user-config\.py
+.vscode/
+
+*.pyc

@@ -1,19 +1,6 @@
-import logging
 from typing import Set
 from enum import Enum
-
-
-def setup_logger():
-    log_format = '%(levelname)s (%(name)s): %(message)s'
-    _logger = logging.getLogger('pywm')
-    file_handler = logging.StreamHandler()
-    formatter = logging.Formatter(log_format)
-    file_handler.setFormatter(formatter)
-    _logger.addHandler(file_handler)
-    return _logger
-
-
-logger = setup_logger()
+from utils import *
 
 
 class Param:
@@ -27,13 +14,13 @@ class Param:
         self.title = title
         self.has_many = has_many
 
-    def is_required(self) -> bool:
+    def is_required(self):
         return self.kind == Param.Kind.REQUIRED
 
-    def is_suggested(self) -> bool:
+    def is_suggested(self):
         return self.kind == Param.Kind.SUGGESTED
 
-    def matches(self, title: str) -> bool:
+    def matches(self, title: str):
         if self.title == title.strip():
             return True
         elif self.has_many and title.startswith(self.title):
@@ -49,9 +36,12 @@ class Template:
         self.name = name
         self.params = set()
 
-    def check_params(self, attrs: list):
-        miss_required = set(x.title for x in set(self.params) if x.is_required())
-        miss_suggested = set(x.title for x in set(self.params) if x.is_suggested())
+    def check_params(self, template):
+        attrs = template.params
+        miss_required = set(x.title for x in set(
+            self.params) if x.is_required())
+        miss_suggested = set(x.title for x in set(
+            self.params) if x.is_suggested())
         suspected = set()
         for att in attrs:
             for par in self.params:
@@ -63,9 +53,23 @@ class Template:
                     break
                 else:
                     suspected.add(s)
+
+        if(len(miss_required) > 0 or len(suspected) > 0 or len(miss_suggested) > 0):
+            for p in ["titolo", "url", 1]:
+                try:
+                    id = template.get(p).value
+                    break
+                except ValueError:
+                    id = "-"
+                    pass
+
+            print_init()
+            print_normal(f'\n== {self.name} ==')
+            print_ok(f'id: {id}\n')
+
         for m in miss_required:
-            logger.warning(f'missing required parameter in {self.name}: {m}')
+            print_error(f'missing required parameter: {m}')
         for m in suspected:
-            logger.warning(f'invalid parameter in {self.name}: {m}')
+            print_debug(f'invalid parameter: {m}')
         for m in miss_suggested:
-            logger.info(f'missing suggested parameter in {self.name}: {m}')
+            print_accent(f'missing suggested parameter: {m}')

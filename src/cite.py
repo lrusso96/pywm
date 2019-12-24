@@ -1,4 +1,4 @@
-from pywmit.templates.base import Template, Param
+from base import Template, Param
 
 # fixme: handle "nome" and "cognome" fields
 # todo: add "cita news"
@@ -9,7 +9,8 @@ class CitaLibro(Template):
         super().__init__('cita libro')
         self.params = set()
         self.params.add(Param('titolo', kind=Param.Kind.REQUIRED))
-        self.params.add(Param('autore', kind=Param.Kind.SUGGESTED, has_many=True))
+        self.params.add(
+            Param('autore', kind=Param.Kind.SUGGESTED, has_many=True))
         self.params.add(Param('wkautore', has_many=True))
         self.params.add(Param('curatore'))
         self.params.add(Param('traduttore'))
@@ -50,7 +51,8 @@ class CitaPubblicazione(Template):
         super().__init__('cita pubblicazione')
         self.params = set()
         self.params.add(Param('titolo', kind=Param.Kind.REQUIRED))
-        self.params.add(Param('autore', kind=Param.Kind.SUGGESTED, has_many=True))
+        self.params.add(
+            Param('autore', kind=Param.Kind.SUGGESTED, has_many=True))
         self.params.add(Param('curatore', kind=Param.Kind.SUGGESTED))
         self.params.add(Param('wkautore', has_many=True))
         self.params.add(Param('rivista', kind=Param.Kind.SUGGESTED))
